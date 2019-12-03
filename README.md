@@ -13,7 +13,7 @@ create database ejemploService;
 use ejemploService;
 
 create table Comanda(
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     fecha varchar(10),
     dniCliente int,
     nombreCliente varchar(50),
