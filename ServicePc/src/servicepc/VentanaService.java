@@ -322,7 +322,7 @@ public class VentanaService extends javax.swing.JFrame {
         // TODO add your handling code here:
         /*Controla que los caracteres que se ingresen al Campo cantidad de Gb sean o Numeros o el . */
         char c = evt.getKeyChar();
-        if(!Character.isDigit(c) || c == '.') evt.consume();
+        if(!Character.isDigit(c) && c != '.') evt.consume();
         /*Que opinas? abuso te gusta? SIIII amar bb <3*/
     }//GEN-LAST:event_txtCantidadGBKeyTyped
 
@@ -348,6 +348,7 @@ public class VentanaService extends javax.swing.JFrame {
             comanda.setNombreCliente(nombreCliente);   
             ConectorBD.agregarComanda(comanda);
             JOptionPane.showMessageDialog(this,"Comanda Agregada");
+            limpiar();
             refrescar();
         }
         catch(SQLException e1){
@@ -464,5 +465,15 @@ public class VentanaService extends javax.swing.JFrame {
             
         }
         
+    }
+    private void limpiar(){
+        this.txtCantidadGB.setText("");
+        this.txtDniCliente.setText("");
+        this.txtFecha.setText("");
+        this.txtNombreCliente.setText("");
+        this.txtTotal.setText("0");
+        this.checkBackUp.setSelected(false);
+        this.checkFormateo.setSelected(false);
+        this.checkOffice.setSelected(false);
     }
 }
